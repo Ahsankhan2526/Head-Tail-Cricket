@@ -1,6 +1,8 @@
 function Ran(){   
+    let pcHit = document.querySelector('.result');
     let PCrun = Math.ceil((Math.random()*6));
     console.log('PC run => ' + PCrun);
+    pcHit.innerHTML = PCrun
     return PCrun
 }
 
@@ -19,7 +21,6 @@ let run = (num)=>{
         p1Btns.forEach(el => el.setAttribute("disabled", "disabled"))
     }
     console.log('Player run => '+num);
-    // console.log(Ran());
 
 }
 
