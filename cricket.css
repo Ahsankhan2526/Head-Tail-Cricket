@@ -1,0 +1,41 @@
+body{
+    background-color: darkslategrey;
+}
+
+.body-div{
+    border: 2px solid white;
+    background-image: url("./images/bg-img.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 400px;
+    width: 600px;
+    padding: 10px;
+}
+.body-div>h1{
+    color:#2138e3;
+    margin-bottom: 10px;
+}
+.flex-div{
+    width: 480px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.p1,.p2{
+    border: 2px double black;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.p1>h1 , .p2>h1{
+    color: black;
+    margin-top: 2px;
+    text-decoration: underline;
+}
+.p1>h2{
+    margin: 50px 10px 10px 10px;
+}
+.p1>h3{
+    margin: 5px 10px;
+}
