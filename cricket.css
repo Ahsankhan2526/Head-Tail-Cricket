@@ -33,9 +33,13 @@ body{
     margin-top: 2px;
     text-decoration: underline;
 }
-.p1>h2{
-    margin: 50px 10px 10px 10px;
+.p1>h2, .p1>h3{
+    margin: 20px 10px 10px 10px;
+    display: inline;
 }
-.p1>h3{
-    margin: 5px 10px;
+
+.p1-total, .p1-total-heading{
+    margin-left: 12px;
+    margin-top: 0px;
+    display: inline;
 }

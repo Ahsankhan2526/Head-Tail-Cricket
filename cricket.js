@@ -1,197 +1,107 @@
-function Ran(){   
-    let pcHit = document.querySelector('.result');
-    let PCrun = Math.ceil((Math.random()*6));
-    console.log('PC run => ' + PCrun);
-    pcHit.innerHTML = PCrun
-    return PCrun
+let onLoad = () => {
+  alert("Player 1 is batting and has 3 players");
+};
+
+let pcBalled;
+function pcRandomNo() {
+  pcBalled = document.querySelector(".result");
+  let PCrun = Math.ceil(Math.random() * 6);
+  pcBalled.innerHTML = PCrun;
+  return PCrun;
 }
+// let a = pcRandomNo();
+// console.log(a);
 
+let p1total = document.querySelector(".p1-total");
 
+let p1Score = 0;
+let p1BatsmanNumber = 1;
+let run;
+let PCturn = false;
+let p1Btns;
+let msg;
+let p1Hit;
 
-let p1total = document.querySelector('.p1-total');
-let number = 0;
-
-
-
-let run = (num)=>{ 
-    number += num
-    p1total.innerHTML = number;
-    if (Ran() === num) {
-        let p1Btns = document.querySelectorAll('.run-btn');
-        p1Btns.forEach(el => el.setAttribute("disabled", "disabled"))
+run = (num) => {
+  let pcHitForBalling = pcRandomNo();
+  console.log("PC => " + pcHitForBalling);
+  console.log("You => " + num);
+  p1Hit = document.querySelector(".p1-hit");
+  if (pcHitForBalling === num) {
+  // if ([1, 2, 3, 4, 5, 6].includes(pcHitForBalling)) {
+    p1Btns = document.querySelectorAll(".run-btn");
+    if (p1BatsmanNumber < 3) {
+      msg = confirm(`OUT, turn of batsman no: ${++p1BatsmanNumber}
+      press OK`);
+    } else {
+      setTimeout(() => {
+        msg = alert(`all team out
+        its PC turn`);
+      }, 1);
+      PCturn = true;
+      p1Btns.forEach((el) => el.setAttribute("disabled", "disabled"));
+      setTimeout(pcBatting, 1);
     }
-    console.log('Player run => '+num);
+    p1Hit.innerHTML = num;
+  } else {
+    p1Score += num;
+    p1total.innerHTML = p1Score;
+    p1Hit.innerHTML = num;
+  }
+};
 
+let pcBatting = () => {
+  let startingPcTurn = confirm("Its pc turn now, press OK to beat PC !!");
+  p1Hit.innerHTML = "- -";
+  pcBalled.innerHTML = "- -";
+
+  if (startingPcTurn) {
+    p1Btns.forEach((el) => el.removeAttribute("disabled"));
+    p1Btns.forEach((el) => el.removeAttribute("onclick"));
+    for (let i = 0; i < 6; i++) {
+      p1Btns[i] = p1Btns[i].setAttribute("onclick", `balling(${i + 1})`);
+      // console.log(p1Btns[i]);
+    }
+    console.log(`============= *-*-* PC Turn *-*-*  ============`);
+  }
+};
+
+{
+  /* <button class="run-btn" onclick="balling(5)">6</button> */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let run1 = ()=>{
-//     console.log(1);
-//     number += 1
-//     p1total.innerHTML = number;
-//     console.log(Ran());
-//     if (Ran() === 1) {
-//         let p1Btns = document.querySelectorAll('.run-btn');
-//         p1Btns.forEach(el => el.setAttribute("disabled", "disabled"))
-//     }
-// }
-// let run2 = ()=>{
-//     console.log(2);
-//     number += 2
-//     p1total.innerHTML = number;
-//     console.log(Ran());
-//     if (Ran() === 1) {
-//         let p1Btns = document.querySelectorAll('.run-btn');
-//         p1Btns.forEach(el => el.setAttribute("disabled", "disabled"))
-//     }
-    
-// }
-// let run3 = ()=>{
-//     console.log(3);
-//     number += 3
-//     p1total.innerHTML = number;
-//     console.log(Ran());
-//     if (Ran() === 1) {
-//         let p1Btns = document.querySelectorAll('.run-btn');
-//         p1Btns.forEach(el => el.setAttribute("disabled", "disabled"))
-//     }
-    
-// }
-// let run4 = ()=>{
-//     console.log(4);
-//     number += 4
-//     p1total.innerHTML = number;
-//     console.log(Ran());
-//     if (Ran() === 1) {
-//         let p1Btns = document.querySelectorAll('.run-btn');
-//         p1Btns.forEach(el => el.setAttribute("disabled", "disabled"))
-//     }
-    
-// }
-// let run5 = ()=>{
-//     console.log(5);
-//     number += 5
-//     p1total.innerHTML = number;
-//     console.log(Ran());
-//     if (Ran() === 1) {
-//         let p1Btns = document.querySelectorAll('.run-btn');
-//         p1Btns.forEach(el => el.setAttribute("disabled", "disabled"))
-//     }
-    
-// }
-// let run6 = ()=>{
-//     console.log(6);
-//     number += 6
-//     p1total.innerHTML = number;
-//     console.log(Ran());
-//     if (Ran() === 1) {
-//         let p1Btns = document.querySelectorAll('.run-btn');
-//         p1Btns.forEach(el => el.setAttribute("disabled", "disabled"))
-//     }
-    
-// }
-
-
-    
+let pcScore = 0;
+let pcBatsmanNumber = 1;
+let balling;
+let pcTotal;
+let pcHitForBatting;
+balling = (num) => {
+  let isOut = false;
+  pcHitForBatting = pcRandomNo(); //5
+  pcTotal = document.querySelector(".pc-total");
+  if (pcBatsmanNumber <= 3) {
+    console.log("PC => " + pcHitForBatting);
+    console.log("You => " + num);
+    p1Hit.innerHTML = num;
+    if (num === pcHitForBatting) {
+      console.log(`*-*-* out no: ${pcBatsmanNumber} *-*-*`);
+      pcBatsmanNumber++;
+      if (pcBatsmanNumber<4) {
+        alert(`OUT, turn of batsman no: ${pcBatsmanNumber}`);
+      }else{
+        isOut = true;
+      }
+    } else {
+      pcBalled.innerHTML = pcHitForBatting;
+      pcScore += pcHitForBatting;
+      pcTotal.innerHTML = pcScore;
+    }
+  } 
+  if(isOut === true){
+    p1Btns.forEach((el) => el.setAttribute("disabled", "disabled"));
+    console.log("All team out");
+  }
+
+  // const ix = p1Btns.findIndex((_, index) => index+1 === Ran);
+  // pcScore += Ran + 1;
+};

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="cricket.css" />
     <title>Cricket</title>
   </head>
-  <body>
+  <body onload="onLoad()">
     <div class="body-div">
       <h1>Cricket Match</h1>
 
@@ -19,15 +19,19 @@
           <button onclick="run(4)" class="run-btn">4</button>
           <button onclick="run(5)" class="run-btn">5</button>
           <button onclick="run(6)" class="run-btn">6</button>
-          <h2 class="">Total:</h2>
-          <h3 class="p1-total">00</h3>
+          <h2 class="p1-hit-heading">Player 1 hit:</h2>
+          <h3 class="p1-hit">- -</h3>
+          <h2 class="p1-total-heading">Total:</h2>
+          <h4 class="p1-total">0</h4>
         </div>
 
         <div class="p2">
           <h1>Player 2</h1>
           <!-- <button onclick="tally()">check</button> -->
           <h2 class="">PC hit:</h2>
-          <h3 class="result"></h3>
+          <h3 class="result">- -</h3>
+          <h2 class="">Total:</h2>
+          <h4 class="pc-total">0</h4>
         </div>
       </div>
     </div>
@@ -35,3 +39,6 @@
     <script src="cricket.js"></script>
   </body>
 </html>
+
+<!-- 
+ -->
