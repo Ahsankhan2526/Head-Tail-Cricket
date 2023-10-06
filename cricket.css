@@ -27,19 +27,25 @@ body{
     display: inline-block;
     padding: 10px;
 }
+.btn-div{
+    margin-bottom: 15px;
+}
 
 .p1>h1 , .p2>h1{
     color: black;
     margin-top: 2px;
     text-decoration: underline;
 }
-.p1>h2, .p1>h3{
+.p1>h2, .p1>h3 , .for-styling{
     margin: 20px 10px 10px 10px;
     display: inline;
 }
 
-.p1-total, .p1-total-heading{
+.p1-total, .p1-total-heading, .pc-total, .pc-total-heading{
     margin-left: 12px;
     margin-top: 0px;
     display: inline;
+}
+.div{
+margin-bottom: 60px;
 }

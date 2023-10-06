@@ -13,12 +13,14 @@
       <div class="flex-div">
         <div class="p1">
           <h1>Player 1</h1>
-          <button onclick="run(1)" class="run-btn">1</button>
-          <button onclick="run(2)" class="run-btn">2</button>
-          <button onclick="run(3)" class="run-btn">3</button>
-          <button onclick="run(4)" class="run-btn">4</button>
-          <button onclick="run(5)" class="run-btn">5</button>
-          <button onclick="run(6)" class="run-btn">6</button>
+          <div class="btn-div">
+            <button onclick="run(1)" class="run-btn">1</button>
+            <button onclick="run(2)" class="run-btn">2</button>
+            <button onclick="run(3)" class="run-btn">3</button>
+            <button onclick="run(4)" class="run-btn">4</button>
+            <button onclick="run(5)" class="run-btn">5</button>
+            <button onclick="run(6)" class="run-btn">6</button>
+          </div>
           <h2 class="p1-hit-heading">Player 1 hit:</h2>
           <h3 class="p1-hit">- -</h3>
           <h2 class="p1-total-heading">Total:</h2>
@@ -27,11 +29,13 @@
 
         <div class="p2">
           <h1>Player 2</h1>
-          <!-- <button onclick="tally()">check</button> -->
-          <h2 class="">PC hit:</h2>
-          <h3 class="result">- -</h3>
-          <h2 class="">Total:</h2>
+          <div class="div"></div>
+          <h2 class="for-styling">PC hit:</h2>
+          <h3 class="result for-styling">- -</h3>
+          <h2 class="pc-total-heading for-styling">Total:</h2>
           <h4 class="pc-total">0</h4>
+          <h3 class="target"></h3>
+
         </div>
       </div>
     </div>

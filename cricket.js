@@ -37,6 +37,8 @@ run = (num) => {
       setTimeout(() => {
         msg = alert(`all team out
         its PC turn`);
+        let target = document.querySelector('.target');
+        target.innerHTML = `Target: ${p1Score}`
       }, 1);
       PCturn = true;
       p1Btns.forEach((el) => el.setAttribute("disabled", "disabled"));
@@ -100,6 +102,14 @@ balling = (num) => {
   if(isOut === true){
     p1Btns.forEach((el) => el.setAttribute("disabled", "disabled"));
     console.log("All team out");
+    if(p1Score>pcScore){
+      alert(`All team out
+player 1 Wins !!!`)
+      }
+      else{
+      alert(`All team out
+PC Wins !!!`)
+    }
   }
 
   // const ix = p1Btns.findIndex((_, index) => index+1 === Ran);
